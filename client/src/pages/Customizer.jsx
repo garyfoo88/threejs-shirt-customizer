@@ -29,13 +29,32 @@ const Customizer = () => {
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "aipicker":
-        return <AIPicker />;
+        return (
+          <AIPicker
+            prompt={prompt}
+            setPrompt={setPrompt}
+            generatingImg={generatingImg}
+            handleSubmit={handleSubmit}
+          />
+        );
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
       case "colorpicker":
         return <ColorPicker />;
       default:
         return null;
+    }
+  };
+
+  const handleSubmit = async (type) => {
+    if (!prompt) return alert("Please enter a prompt");
+
+    try {
+      // Call backend to generate an ai imageß
+    } catch {
+    } finally {
+      setGeneratingImg(false);
+      setActiveEditorTab("");
     }
   };
 
@@ -61,6 +80,7 @@ const Customizer = () => {
         state.isLogoTexture = true;
     }
 
+    // after setting the state, active filter tab is updated
     setActiveFilterTab((prev) => ({
       ...prev,
       [tabName]: !prev[tabName],
