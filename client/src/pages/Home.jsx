@@ -32,8 +32,8 @@ const Home = () => {
               {...headContentAnimation}
               className="flex flex-col gap-5"
             >
-              <p className="max-w-md font-normal text-gray-600 text-base">
-                Create tour bla bla bla
+              <p className="max-w-md font-normal text-yellow-100 text-base">
+                Example Texts
               </p>
               <CustomButton
                 type="filled"
